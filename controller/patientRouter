@@ -1,0 +1,21 @@
+const express=require("express")
+const patientmodel=require("../model/patientmodel")
+const router=express.Router()
+
+
+router.post("/add",async(req,res)=>{
+    let data=req.body                //read data
+    let patient=new patientmodel(data)
+    let result=await patient.save()
+    res.json({
+        status:"sucess"
+    })
+   // res.send("ad")
+})
+
+router.get("/viewall",async(req,res)=>{  //display
+    let data=await patientmodel.find()
+    res.json(data)
+    //res.send("vi")
+})
+module.exports=router

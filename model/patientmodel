@@ -1,0 +1,14 @@
+const mongoose=require("mongoose")
+
+//creating structure
+const patientschema=new mongoose.Schema(
+        {
+            name:String,
+            phno:String,
+            address:String,
+            symptoms:String,
+            status:String
+        
+        }
+)
+module.exports=mongoose.model("patients",patientschema)
